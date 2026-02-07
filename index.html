@@ -1,0 +1,599 @@
+﻿<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NAK Immigration Consultancy - Your Canadian Dream, Simplified</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" href="images/logo.png" type="image/png">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Stripe Pricing Table Script (kept in case you want to use it later) -->
+    <script async src="https://js.stripe.com/v3/pricing-table.js"></script>
+
+    <!-- Custom Styles & Tailwind Config -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        'sans': ['Inter', 'sans-serif'],
+                        'serif': ['Playfair Display', 'serif'],
+                    },
+                    colors: {
+                        'primary': '#C8102E', // A strong, confident red
+                        'primary-dark': '#A10D24',
+                        'secondary': '#2D3748', // A dark, slate gray
+                        'light-gray': '#F7FAFC',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Simple animation for scroll fade-in */
+        .scroll-animate {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+        .scroll-animate.in-view {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        /* FAQ Accordion Styles */
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s ease-in-out;
+        }
+    </style>
+</head>
+<body class="bg-white font-sans text-gray-700">
+
+    <!-- ========== HEADER ========== -->
+    <header id="header" class="bg-white/80 backdrop-blur-lg fixed top-0 left-0 right-0 z-50 shadow-sm transition-all duration-300">
+        <div class="container mx-auto px-6 py-2 flex justify-between items-center">
+            <!-- LOGO INTEGRATION -->
+            <a href="#" class="flex-shrink-0">
+                <img src="images/logo.png" alt="NAK Immigration Consultancy Logo" class="h-20 w-auto">
+            </a>
+            <nav class="hidden md:flex items-center space-x-8">
+                <a href="#about" class="text-gray-600 hover:text-primary transition">About</a>
+                <a href="#services" class="text-gray-600 hover:text-primary transition">Services</a>
+                <a href="#products" class="text-gray-600 hover:text-primary transition">Products</a>
+                <a href="#process" class="text-gray-600 hover:text-primary transition">Process</a>
+                <a href="#faq" class="text-gray-600 hover:text-primary transition">FAQ</a>
+                <a href="#testimonials" class="text-gray-600 hover:text-primary transition">Testimonials</a>
+            </nav>
+            <a href="https://calendar.google.com/calendar/appointments/schedules/AcZssZ0nW7WsQlD-hbVHQBTR5W0Xqgd94PLU5Q-34qOi3ddIANFlZS4xkb16L7pWMCQV8gL41bfTOEo7?gv=true" target="_blank" class="hidden md:inline-block bg-primary text-white font-bold py-3 px-6 rounded-lg hover:bg-primary-dark transition-transform duration-300 hover:scale-105">
+                Book Free Consultation
+            </a>
+            <button id="mobile-menu-btn" class="md:hidden text-2xl text-secondary">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden">
+            <a href="#about" class="block py-2 px-6 text-gray-600 hover:bg-gray-100">About</a>
+            <a href="#services" class="block py-2 px-6 text-gray-600 hover:bg-gray-100">Services</a>
+            <a href="#products" class="block py-2 px-6 text-gray-600 hover:bg-gray-100">Products</a>
+            <a href="#process" class="block py-2 px-6 text-gray-600 hover:bg-gray-100">Process</a>
+            <a href="#faq" class="block py-2 px-6 text-gray-600 hover:bg-gray-100">FAQ</a>
+            <a href="#testimonials" class="block py-2 px-6 text-gray-600 hover:bg-gray-100">Testimonials</a>
+            <div class="p-4">
+                 <a href="https://calendar.google.com/calendar/appointments/schedules/AcZssZ0nW7WsQlD-hbVHQBTR5W0Xqgd94PLU5Q-34qOi3ddIANFlZS4xkb16L7pWMCQV8gL41bfTOEo7?gv=true" target="_blank" class="w-full text-center bg-primary text-white font-bold py-3 px-6 rounded-lg hover:bg-primary-dark transition">Book Consultation</a>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- ========== HERO SECTION ========== -->
+        <section class="relative h-screen min-h-[700px] flex items-center">
+            <div class="absolute inset-0 bg-black/60 z-10"></div>
+            <img src="images/home_polyglot_pic2.png" class="absolute inset-0 w-full h-full object-cover" alt="City skyline with Canadian flag">
+            <div class="relative z-20 container mx-auto px-6 text-center text-white">
+                <h1 class="font-serif text-5xl md:text-7xl font-bold mb-4">Your Canadian Dream, Simplified.</h1>
+                <p class="text-lg md:text-xl max-w-3xl mx-auto mb-8">Expert guidance for every step of your immigration journey. Let's build your future in Canada together.</p>
+                <a href="https://calendar.google.com/calendar/appointments/schedules/AcZssZ0nW7WsQlD-hbVHQBTR5W0Xqgd94PLU5Q-34qOi3ddIANFlZS4xkb16L7pWMCQV8gL41bfTOEo7?gv=true" target="_blank" class="bg-primary text-white font-bold py-4 px-8 rounded-lg text-lg hover:bg-primary-dark transition-transform duration-300 hover:scale-105 inline-block">
+                    Book Your Free Consultation
+                </a>
+            </div>
+        </section>
+
+        <!-- ========== ABOUT ME SECTION ========== -->
+        <section id="about" class="py-20 bg-white">
+            <div class="container mx-auto px-6">
+                <div class="md:flex items-center gap-12">
+                    <div class="md:w-1/3 text-center mb-8 md:mb-0 scroll-animate">
+                        <!-- User's photo integrated here -->
+                        <img src="images/Nenyo_Picture.jpg" alt="Nenyo Kwasitsu, RCIC-IRB" class="rounded-full shadow-2xl mx-auto w-64 h-64 object-cover">
+                    </div>
+                    <div class="md:w-2/3 scroll-animate" style="transition-delay: 150ms;">
+                        <h2 class="font-serif text-4xl font-bold text-secondary mb-4">Meet Your Dedicated Consultant</h2>
+                        <p class="text-lg text-gray-600 mb-4">
+                            My name is Nenyo Kwasitsu, and my passion is helping individuals and families navigate the complexities of Canadian immigration. I founded NAK Immigration Consultancy with a singular vision: to provide clear, honest, and personalized guidance for every client.
+                        </p>
+                        <p class="text-gray-600 mb-6">
+                            Your dream of a new life in Canada is my priority. I am committed to offering a transparent and supportive experience from our first conversation to your final arrival.
+                        </p>
+                        <!-- Verifiable Credential Box -->
+                        <a href="https://register.college-ic.ca/Public-Register-EN/Licensee/Profile.aspx?ID=8862" target="_blank" rel="noopener noreferrer" class="block bg-light-gray border-l-4 border-primary p-4 rounded-r-lg hover:shadow-md hover:bg-gray-200 transition-all duration-300 group">
+                            <div class="flex justify-between items-center">
+                                <div>
+                                    <p class="font-bold text-secondary">Regulated Canadian Immigration Consultant (RCIC-IRB)</p>
+                                    <p class="text-sm text-gray-600">As a licensed member in good standing, I am authorized by the CICC to represent clients on their immigration matters.</p>
+                                </div>
+                                <i class="fas fa-external-link-alt text-gray-400 group-hover:text-primary transition-colors"></i>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ========== DETAILED SERVICES & STATS SECTION ========== -->
+        <section id="services" class="py-20 bg-light-gray">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-16 scroll-animate">
+                    <h2 class="font-serif text-4xl font-bold text-secondary mb-3">Our Areas of Expertise</h2>
+                    <p class="text-lg max-w-2xl mx-auto text-gray-600">We offer expert guidance across a wide range of Canadian immigration pathways.</p>
+                </div>
+                
+                <!-- Animated Statistics -->
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16 text-center">
+                    <div class="bg-white p-6 rounded-xl shadow-lg scroll-animate">
+                        <p class="font-serif text-4xl font-bold text-primary" data-count-to="5">0</p>
+                        <p class="text-secondary font-semibold mt-2">Years of Experience</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-xl shadow-lg scroll-animate" style="transition-delay: 150ms;">
+                        <p class="font-serif text-4xl font-bold text-primary" data-count-to="100">0</p>
+                        <p class="text-secondary font-semibold mt-2">Visas Approved</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-xl shadow-lg scroll-animate" style="transition-delay: 300ms;">
+                        <p class="font-serif text-4xl font-bold text-primary" data-count-to="98">0%</p>
+                        <p class="text-secondary font-semibold mt-2">Client Satisfaction</p>
+                    </div>
+                </div>
+
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Service Cards -->
+                    <div class="bg-white p-8 rounded-xl shadow-lg text-center scroll-animate transition-transform duration-300 hover:-translate-y-2"><div class="text-primary text-5xl mb-4"><i class="fas fa-user-graduate"></i></div><h3 class="text-xl font-bold text-secondary mb-2">Study Permits</h3><p class="text-gray-600">Navigate the process of applying to Canadian schools and securing your study visa with confidence.</p></div>
+                    <div class="bg-white p-8 rounded-xl shadow-lg text-center scroll-animate transition-transform duration-300 hover:-translate-y-2" style="transition-delay: 100ms;"><div class="text-primary text-5xl mb-4"><i class="fas fa-rocket"></i></div><h3 class="text-xl font-bold text-secondary mb-2">Express Entry</h3><p class="text-gray-600">Maximize your CRS score and profile for a successful invitation to apply for permanent residency.</p></div>
+                    <div class="bg-white p-8 rounded-xl shadow-lg text-center scroll-animate transition-transform duration-300 hover:-translate-y-2" style="transition-delay: 200ms;"><div class="text-primary text-5xl mb-4"><i class="fas fa-briefcase"></i></div><h3 class="text-xl font-bold text-secondary mb-2">Work Visas & Permits</h3><p class="text-gray-600">From LMIAs to open work permits, we guide both employees and employers through the process.</p></div>
+                    <div class="bg-white p-8 rounded-xl shadow-lg text-center scroll-animate transition-transform duration-300 hover:-translate-y-2" style="transition-delay: 300ms;"><div class="text-primary text-5xl mb-4"><i class="fas fa-heart"></i></div><h3 class="text-xl font-bold text-secondary mb-2">Family Sponsorship</h3><p class="text-gray-600">Reunite with your loved ones in Canada by sponsoring your spouse, partner, children, or parents.</p></div>
+                    <div class="bg-white p-8 rounded-xl shadow-lg text-center scroll-animate transition-transform duration-300 hover:-translate-y-2" style="transition-delay: 400ms;"><div class="text-primary text-5xl mb-4"><i class="fas fa-plane-departure"></i></div><h3 class="text-xl font-bold text-secondary mb-2">Visitor & Super Visas</h3><p class="text-gray-600">Assistance with applications for tourism, family visits, or the popular Super Visa for parents.</p></div>
+                    <div class="bg-white p-8 rounded-xl shadow-lg text-center scroll-animate transition-transform duration-300 hover:-translate-y-2" style="transition-delay: 500ms;"><div class="text-primary text-5xl mb-4"><i class="fas fa-chart-line"></i></div><h3 class="text-xl font-bold text-secondary mb-2">Business Immigration</h3><p class="text-gray-600">Guidance for entrepreneurs and investors looking to establish their business presence in Canada.</p></div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- ========== DIGITAL PRODUCTS SECTION ========== -->
+        <section id="products" class="py-20 bg-white">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-16 scroll-animate">
+                    <h2 class="font-serif text-4xl font-bold text-secondary mb-3">DIY Immigration Guides</h2>
+                    <p class="text-lg max-w-2xl mx-auto text-gray-600">Empower your immigration journey with our expertly crafted digital guides and checklists.</p>
+                </div>
+                <div class="grid md:grid-cols-1 lg:grid-cols-3 gap-10 max-w-7xl mx-auto">
+                    <!-- Product 1 -->
+                    <div class="bg-light-gray rounded-xl shadow-lg flex flex-col overflow-hidden scroll-animate transition-transform duration-300 hover:scale-105">
+                        <div class="p-8">
+                            <div class="flex items-center gap-4 mb-4">
+                                <div class="text-primary text-4xl"><i class="fas fa-file-alt"></i></div>
+                                <h3 class="text-2xl font-bold text-secondary">The Ultimate Study Permit Guide</h3>
+                            </div>
+                            <p class="text-gray-600 mb-6">This comprehensive guide walks you through every step of the study permit application, from choosing a school to writing your letter of explanation. Includes bonus checklists.</p>
+                        </div>
+                        <div class="bg-gray-200 p-6 mt-auto flex justify-between items-center">
+                            <p class="text-2xl font-bold text-secondary">$49.99 <span class="text-sm font-normal">CAD</span></p>
+                            <!-- IMPORTANT: Replace '#' with your actual Stripe Payment Link -->
+                            <a href="https://buy.stripe.com/test_aFa3cu6231eb2KrbrW3Nm00" target="_blank" class="bg-primary text-white font-bold py-2 px-5 rounded-lg hover:bg-primary-dark transition">Purchase Now</a>
+                        </div>
+                    </div>
+                    <!-- Product 2 -->
+                    <div class="bg-light-gray rounded-xl shadow-lg flex flex-col overflow-hidden scroll-animate transition-transform duration-300 hover:scale-105" style="transition-delay: 150ms;">
+                        <div class="p-8">
+                            <div class="flex items-center gap-4 mb-4">
+                                <div class="text-primary text-4xl"><i class="fas fa-list-check"></i></div>
+                                <h3 class="text-2xl font-bold text-secondary">Express Entry Document Checklist</h3>
+                            </div>
+                            <p class="text-gray-600 mb-6">Never miss a single document. Our detailed checklist covers every possible document you'll need for your Express Entry profile, saving you time and preventing costly mistakes.</p>
+                        </div>
+                        <div class="bg-gray-200 p-6 mt-auto flex justify-between items-center">
+                            <p class="text-2xl font-bold text-secondary">$24.99 <span class="text-sm font-normal">CAD</span></p>
+                            <!-- IMPORTANT: Replace '#' with your actual Stripe Payment Link -->
+                            <a href="#" target="_blank" class="bg-primary text-white font-bold py-2 px-5 rounded-lg hover:bg-primary-dark transition">Purchase Now</a>
+                        </div>
+                    </div>
+                    <!-- Product 3: NEW -->
+                    <div class="bg-light-gray rounded-xl shadow-lg flex flex-col overflow-hidden scroll-animate transition-transform duration-300 hover:scale-105" style="transition-delay: 300ms;">
+                        <div class="p-8">
+                            <div class="flex items-center gap-4 mb-4">
+                                <div class="text-primary text-4xl"><i class="fas fa-user-nurse"></i></div>
+                                <h3 class="text-2xl font-bold text-secondary">The Ghanaian Nurse's Pathway to Canada</h3>
+                            </div>
+                            <p class="text-gray-600 mb-6">This 2025 roadmap guides you step-by-step to PR and a thriving nursing career. Navigate licensing, choose the best immigration program, and secure your Canadian nursing job.</p>
+                        </div>
+                        <div class="bg-gray-200 p-6 mt-auto flex justify-between items-center">
+                            <p class="text-2xl font-bold text-secondary">$79.99 <span class="text-sm font-normal">CAD</span></p>
+                            <!-- Stripe Payment Link Updated -->
+                            <a href="https://buy.stripe.com/eVqcN57TW2kybsReK943S00" target="_blank" class="bg-primary text-white font-bold py-2 px-5 rounded-lg hover:bg-primary-dark transition">Purchase Now</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ========== HOW IT WORKS SECTION ========== -->
+        <section id="process" class="py-20 bg-light-gray">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-16 scroll-animate">
+                    <h2 class="font-serif text-4xl font-bold text-secondary mb-3">Your Journey Starts Here</h2>
+                    <p class="text-lg max-w-2xl mx-auto text-gray-600">We've simplified the path to getting expert immigration advice. Here's how it works.</p>
+                </div>
+                <div class="relative">
+                    <!-- The vertical line -->
+                    <div class="hidden md:block absolute top-0 left-1/2 w-0.5 h-full bg-gray-200 -translate-x-1/2"></div>
+                    
+                    <!-- Step 1 -->
+                    <div class="md:flex items-center w-full mb-8 scroll-animate">
+                        <div class="md:w-1/2 md:pr-8">
+                            <div class="bg-white p-6 rounded-xl shadow-lg border-l-4 border-primary">
+                                <h3 class="text-xl font-bold text-secondary mb-2">Book Your Free Consultation</h3>
+                                <p class="text-gray-600">Schedule a free 15-minute meeting with us at your convenience. This is the first step to assessing your options.</p>
+                            </div>
+                        </div>
+                        <div class="hidden md:flex md:w-1/2 justify-start md:justify-center relative">
+                            <div class="bg-primary text-white w-12 h-12 rounded-full flex items-center justify-center text-xl font-bold">1</div>
+                        </div>
+                    </div>
+
+                    <!-- Step 2 -->
+                    <div class="md:flex flex-row-reverse items-center w-full mb-8 scroll-animate">
+                        <div class="md:w-1/2 md:pl-8">
+                             <div class="bg-white p-6 rounded-xl shadow-lg border-r-4 border-primary text-right md:text-left">
+                                <h3 class="text-xl font-bold text-secondary mb-2">Develop a Personalized Strategy</h3>
+                                <p class="text-gray-600">In our meeting, we'll discuss your profile and goals to create a tailored immigration strategy just for you.</p>
+                            </div>
+                        </div>
+                        <div class="hidden md:flex md:w-1/2 justify-end md:justify-center relative">
+                            <div class="bg-primary text-white w-12 h-12 rounded-full flex items-center justify-center text-xl font-bold">2</div>
+                        </div>
+                    </div>
+
+                    <!-- Step 3 -->
+                    <div class="md:flex items-center w-full mb-8 scroll-animate">
+                        <div class="md:w-1/2 md:pr-8">
+                            <div class="bg-white p-6 rounded-xl shadow-lg border-l-4 border-primary">
+                                <h3 class="text-xl font-bold text-secondary mb-2">Begin Your Immigration Journey</h3>
+                                <p class="text-gray-600">With a clear plan in place, our regulated consultants will guide you through every step of the application process.</p>
+                            </div>
+                        </div>
+                        <div class="hidden md:flex md:w-1/2 justify-start md:justify-center relative">
+                            <div class="bg-primary text-white w-12 h-12 rounded-full flex items-center justify-center text-xl font-bold">3</div>
+                        </div>
+                    </div>
+                </div>
+                 <div class="text-center mt-16 scroll-animate">
+                    <a href="https://calendar.google.com/calendar/appointments/schedules/AcZssZ0nW7WsQlD-hbVHQBTR5W0Xqgd94PLU5Q-34qOi3ddIANFlZS4xkb16L7pWMCQV8gL41bfTOEo7?gv=true" target="_blank" class="bg-primary text-white font-bold py-4 px-8 rounded-lg text-lg hover:bg-primary-dark transition-transform duration-300 hover:scale-105 inline-block">
+                        Schedule Your Free Call
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- ========== FAQ SECTION ========== -->
+        <section id="faq" class="py-20 bg-white">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-16 scroll-animate">
+                    <h2 class="font-serif text-4xl font-bold text-secondary mb-3">Frequently Asked Questions</h2>
+                    <p class="text-lg max-w-2xl mx-auto text-gray-600">Have questions? We have answers. Here are some of the most common inquiries we receive.</p>
+                </div>
+                <div class="max-w-3xl mx-auto">
+                    <!-- FAQ Item 1 -->
+                    <div class="border-b border-gray-200 py-4 scroll-animate">
+                        <button class="w-full flex justify-between items-center text-left faq-question">
+                            <span class="text-lg font-semibold text-secondary">What is the first step to begin the process?</span>
+                            <i class="fas fa-chevron-down text-primary transform transition-transform"></i>
+                        </button>
+                        <div class="faq-answer mt-2 text-gray-600">
+                            <p>The best first step is to book a free 15-minute consultation with us through our website. This initial meeting allows us to understand your unique profile, discuss your goals, and provide preliminary guidance on your most promising immigration pathways.</p>
+                        </div>
+                    </div>
+                    <!-- FAQ Item 2 -->
+                    <div class="border-b border-gray-200 py-4 scroll-animate">
+                        <button class="w-full flex justify-between items-center text-left faq-question">
+                            <span class="text-lg font-semibold text-secondary">Are you a licensed immigration consultant?</span>
+                            <i class="fas fa-chevron-down text-primary transform transition-transform"></i>
+                        </button>
+                        <div class="faq-answer mt-2 text-gray-600">
+                            <p>Yes, absolutely. Our principal consultant, Nenyo Kwasitsu, is a Regulated Canadian Immigration Consultant (RCIC-IRB) and a member in good standing with the College of Immigration and Citizenship Consultants (CICC). You can verify our status on the official CICC public register linked in the "About Me" section.</p>
+                        </div>
+                    </div>
+                    <!-- FAQ Item 3 -->
+                    <div class="border-b border-gray-200 py-4 scroll-animate">
+                        <button class="w-full flex justify-between items-center text-left faq-question">
+                            <span class="text-lg font-semibold text-secondary">How much do your services cost?</span>
+                            <i class="fas fa-chevron-down text-primary transform transition-transform"></i>
+                        </button>
+                        <div class="faq-answer mt-2 text-gray-600">
+                            <p>Our fees vary depending on the complexity of the case and the type of application. We believe in full transparency, so we provide a clear and detailed fee structure after your initial consultation. There are no hidden costs.</p>
+                        </div>
+                    </div>
+                    <!-- FAQ Item 4 -->
+                    <div class="border-b border-gray-200 py-4 scroll-animate">
+                        <button class="w-full flex justify-between items-center text-left faq-question">
+                            <span class="text-lg font-semibold text-secondary">How long does the immigration process take?</span>
+                            <i class="fas fa-chevron-down text-primary transform transition-transform"></i>
+                        </button>
+                        <div class="faq-answer mt-2 text-gray-600">
+                            <p>Processing times are set by Immigration, Refugees and Citizenship Canada (IRCC) and can change. They vary significantly based on the application type and other factors. We always provide you with the most current processing time estimates and keep you informed of any changes.</p>
+                        </div>
+                    </div>
+                    <!-- FAQ Item 5 -->
+                    <div class="border-b border-gray-200 py-4 scroll-animate">
+                        <button class="w-full flex justify-between items-center text-left faq-question">
+                            <span class="text-lg font-semibold text-secondary">Can you guarantee my visa will be approved?</span>
+                            <i class="fas fa-chevron-down text-primary transform transition-transform"></i>
+                        </button>
+                        <div class="faq-answer mt-2 text-gray-600">
+                            <p>No ethical or licensed consultant can guarantee a visa approval, as the final decision always rests with the Canadian government (IRCC). However, we guarantee that your application will be prepared meticulously and professionally to maximize your chances of a successful outcome.</p>
+                        </div>
+                    </div>
+                    <!-- Add more FAQ items as needed -->
+                </div>
+            </div>
+        </section>
+
+        <!-- ========== TESTIMONIALS SECTION ========== -->
+        <section id="testimonials" class="py-20 bg-light-gray">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-16 scroll-animate">
+                    <h2 class="font-serif text-4xl font-bold text-secondary mb-3">What Our Clients Say</h2>
+                    <p class="text-lg max-w-2xl mx-auto text-gray-600">We are proud to have guided so many on their journey to a new life in Canada.</p>
+                </div>
+                <!-- This is where the testimonials will be injected by JavaScript -->
+                <div id="testimonials-grid" class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Loading message -->
+                    <p id="loading-testimonials" class="text-center col-span-full text-gray-500">Loading testimonials...</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ========== FINAL CTA SECTION ========== -->
+        <section id="contact" class="bg-secondary text-white">
+            <div class="container mx-auto px-6 py-20 text-center">
+                <h2 class="font-serif text-4xl font-bold mb-4 scroll-animate">Ready to Start Your Journey?</h2>
+                <p class="text-lg max-w-2xl mx-auto mb-8 text-gray-300 scroll-animate" style="transition-delay: 150ms;">Your new life in Canada is closer than you think. Book your free, no-obligation consultation today and get a clear path forward.</p>
+                <div class="scroll-animate" style="transition-delay: 300ms;">
+                    <a href="https://calendar.google.com/calendar/appointments/schedules/AcZssZ0nW7WsQlD-hbVHQBTR5W0Xqgd94PLU5Q-34qOi3ddIANFlZS4xkb16L7pWMCQV8gL41bfTOEo7?gv=true" target="_blank" class="bg-primary text-white font-bold py-4 px-8 rounded-lg text-lg hover:bg-primary-dark transition-transform duration-300 hover:scale-105 inline-block">
+                        Book Free Consultation
+                    </a>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- ========== FOOTER ========== -->
+    <footer class="bg-gray-800 text-gray-400">
+        <div class="container mx-auto px-6 py-10">
+            <div class="grid md:grid-cols-3 gap-8 text-center md:text-left items-center">
+                <div class="flex justify-center md:justify-start">
+                     <!-- FOOTER LOGO -->
+                    <img src="images/logo.png" alt="NAK Immigration Consultancy Footer Logo" class="h-20 w-auto bg-white/10 p-2 rounded-lg">
+                </div>
+                <div>
+                    <h4 class="font-bold text-white text-lg mb-4">Quick Links</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#about" class="hover:text-primary transition">About</a></li>
+                        <li><a href="#services" class="hover:text-primary transition">Services</a></li>
+                        <li><a href="#products" class="hover:text-primary transition">Products</a></li>
+                        <li><a href="#process" class="hover:text-primary transition">Our Process</a></li>
+                        <li><a href="#faq" class="hover:text-primary transition">FAQ</a></li>
+                        <li><a href="#testimonials" class="hover:text-primary transition">Testimonials</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-bold text-white text-lg mb-4">Connect With Us</h4>
+                    <div class="flex justify-center md:justify-start space-x-6 text-2xl">
+                        <a href="mailto:nenyo@nakimmigrationconsultancy.com" class="hover:text-primary transition" title="Email"><i class="fas fa-envelope"></i></a>
+                        <a href="https://wa.me/message/VZ2CR2PPZ6GXB1" class="hover:text-primary transition" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                        <a href="https://m.me/254444707759492" class="hover:text-primary transition" title="Facebook Messenger"><i class="fab fa-facebook-messenger"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="text-center text-gray-500 border-t border-gray-700 mt-10 pt-6">
+                &copy; 2025 NAK Immigration Consultancy | All Rights Reserved.
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript for animations, mobile menu, and testimonials -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // --- Mobile Menu Toggle ---
+            const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+            const mobileMenu = document.getElementById('mobile-menu');
+            mobileMenuBtn.addEventListener('click', function() {
+                mobileMenu.classList.toggle('hidden');
+            });
+
+            // --- Scroll Animations & Number Counting ---
+            const scrollAnimateElements = document.querySelectorAll('.scroll-animate');
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('in-view');
+                        // Check if the element is a number to be counted
+                        const countToElement = entry.target.querySelector('[data-count-to]');
+                        if (countToElement && !countToElement.classList.contains('is-counting')) {
+                            animateCountUp(countToElement);
+                        }
+                    }
+                });
+            }, {
+                threshold: 0.1
+            });
+            scrollAnimateElements.forEach(element => {
+                observer.observe(element);
+            });
+            
+            // --- Sticky Header Background Change ---
+            const header = document.getElementById('header');
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 50) {
+                    header.classList.add('bg-white/95');
+                    header.classList.remove('bg-white/80');
+                } else {
+                    header.classList.remove('bg-white/95');
+                    header.classList.add('bg-white/80');
+                }
+            });
+
+            // --- Animated Number Counter Function ---
+            function animateCountUp(el) {
+                el.classList.add('is-counting');
+                const target = parseInt(el.getAttribute('data-count-to'), 10);
+                let current = 0;
+                const increment = target / 100;
+                const interval = setInterval(() => {
+                    current += increment;
+                    if (current >= target) {
+                        clearInterval(interval);
+                        current = target;
+                    }
+                    if (el.textContent.includes('%')) {
+                        el.textContent = Math.ceil(current) + '%';
+                    } else {
+                        el.textContent = Math.ceil(current);
+                    }
+                }, 20);
+            }
+
+            // --- FAQ Accordion ---
+            const faqQuestions = document.querySelectorAll('.faq-question');
+            faqQuestions.forEach(question => {
+                question.addEventListener('click', () => {
+                    const answer = question.nextElementSibling;
+                    const icon = question.querySelector('i');
+                    
+                    if (answer.style.maxHeight) {
+                        answer.style.maxHeight = null;
+                        icon.classList.remove('rotate-180');
+                    } else {
+                        answer.style.maxHeight = answer.scrollHeight + "px";
+                        icon.classList.add('rotate-180');
+                    }
+                });
+            });
+
+            // --- Dynamic Testimonials from Google Sheet ---
+            const sheetId = '1JB6BcIrD-H2IBboOxZZSGkZs8ZIJewIUvxFRquoqvuI';
+            const sheetUrl = `https://docs.google.com/spreadsheets/d/${sheetId}/gviz/tq?tqx=out:csv`;
+            const testimonialsGrid = document.getElementById('testimonials-grid');
+            const loadingMessage = document.getElementById('loading-testimonials');
+            
+            const proxyUrl = `https://corsproxy.io/?${encodeURIComponent(sheetUrl)}`;
+
+            fetch(proxyUrl)
+                .then(response => {
+                    if (response.ok) return response.text();
+                    throw new Error('Network response was not ok.');
+                })
+                .then(csvText => {
+                    if (!csvText) {
+                        throw new Error('Proxy did not return content.');
+                    }
+                    loadingMessage.style.display = 'none';
+                    const testimonials = csvToObjects(csvText);
+                    
+                    if (testimonials.length === 0) {
+                        testimonialsGrid.innerHTML = '<p class="text-center col-span-full text-gray-500">No testimonials to display at this time. Check back soon!</p>';
+                        return;
+                    }
+
+                    let testimonialHTML = '';
+                    testimonials.forEach(row => {
+                        const consent = row['Consent'];
+                        if (consent && consent.toLowerCase().trim() === 'yes, i agree') {
+                            const name = row['Your Full Name'];
+                            const testimonialText = row['Your Testimonial'];
+                            const photoUrlString = row['Upload a Profile Photo (Optional)'];
+                            
+                            const photoUrl = photoUrlString ? `https://lh3.googleusercontent.com/d/${extractGoogleDriveId(photoUrlString)}` : 'https://placehold.co/100x100/E2E8F0/4A5568?text=Client';
+
+                            testimonialHTML += `
+                                <div class="bg-white p-8 rounded-xl shadow-lg flex flex-col scroll-animate">
+                                    <i class="fas fa-quote-left text-primary text-3xl mb-4"></i>
+                                    <p class="text-gray-600 mb-6 flex-grow">"${testimonialText}"</p>
+                                    <div class="flex items-center mt-auto">
+                                        <img src="${photoUrl}" class="w-12 h-12 rounded-full mr-4 object-cover bg-gray-200" alt="Photo of ${name}" onerror="this.onerror=null;this.src='https://placehold.co/100x100/E2E8F0/4A5568?text=Client';">
+                                        <div>
+                                            <p class="font-bold text-secondary">${name}</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            `;
+                        }
+                    });
+                    
+                    if(testimonialHTML === '') {
+                         testimonialsGrid.innerHTML = '<p class="text-center col-span-full text-gray-500">No testimonials with consent to share have been submitted yet.</p>';
+                    } else {
+                        testimonialsGrid.innerHTML = testimonialHTML;
+                    }
+
+                    const newScrollAnimateElements = testimonialsGrid.querySelectorAll('.scroll-animate');
+                     newScrollAnimateElements.forEach(element => {
+                        observer.observe(element);
+                    });
+
+                })
+                .catch(error => {
+                    console.error('Error fetching testimonials:', error);
+                    if (loadingMessage) {
+                        loadingMessage.textContent = 'Could not load testimonials at this time. Please ensure the Google Sheet is public.';
+                    }
+                });
+            
+            function csvToObjects(csv) {
+                const lines = csv.trim().split('\n');
+                const headers = lines[0].split(',').map(h => h.trim().replace(/"/g, ''));
+                const result = [];
+
+                for (let i = 1; i < lines.length; i++) {
+                    const obj = {};
+                    const currentline = lines[i].match(/(".*?"|[^",]+)(?=\s*,|\s*$)/g) || [];
+                    
+                    if (currentline.length === headers.length) {
+                         for (let j = 0; j < headers.length; j++) {
+                            obj[headers[j]] = currentline[j].replace(/"/g, '').trim();
+                        }
+                        result.push(obj);
+                    }
+                }
+                return result;
+            }
+
+            function extractGoogleDriveId(url) {
+                if (!url) return null;
+                const match = url.match(/id=([^&]+)/);
+                return match ? match[1] : null;
+            }
+        });
+    </script>
+</body>
+</html>
